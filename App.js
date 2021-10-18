@@ -1,21 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import * as Font from "expo-font";
+import AppLoading from "expo-app-loading";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import CategoryScreen from "./Screens/CategoryScreen";
+import CategoryMenu from "./Screens/categoryMenu";
+import CategoryMenuDetails from "./Screens/categoryMenuDetails";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const Stack = createNativeStackNavigator();
+
+function customFont() {
+  return Font.loadAsync({
+    "open-sans": require("./assets/fonts/OpenSans_Condensed-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+  });
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App(props) {
+  const [isFontReady, setIsFontReady] = useState(false);
+
+  if (!isFontReady) {
+    return (
+      <AppLoading
+        startAsync={customFont}
+        onFinish={() => setIsFontReady(true)}
+        onError={(err) => console.log(err)}
+      />
+    );
+  }
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="First" component={CategoryScreen} />
+        <Stack.Screen name="Second" component={CategoryMenu} />
+        <Stack.Screen name="Third" component={CategoryMenuDetails} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
