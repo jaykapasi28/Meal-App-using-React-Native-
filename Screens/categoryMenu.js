@@ -6,7 +6,8 @@ function CategoryMenu(props) {
     return(
         <View style={styles.screen}> 
             <Text>This is CategoryMenu Screen</Text>  
-            <Text>{props.route.params.catTitle}</Text>
+            {/* <Text>{props.route.params.catTitle}</Text>
+            <Text>{props.route.params.catId}</Text> */}
             <Button title= "Go to third" onPress={() => props.navigation.navigate("Third")}/>
         </View>
     )

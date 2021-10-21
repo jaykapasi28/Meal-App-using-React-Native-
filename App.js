@@ -31,9 +31,9 @@ export default function App(props) {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{headerStyle: {backgroundColor: "#005ce6"}, headerTintColor: "white"}}>
         <Stack.Screen name="First" component={CategoryScreen} />
-        <Stack.Screen name="Second" component={CategoryMenu} />
+        <Stack.Screen name="Second" component={CategoryMenu} options={(data) => ({headerTitle: data.route.params.catTitle})}/>
         <Stack.Screen name="Third" component={CategoryMenuDetails} />
       </Stack.Navigator>
     </NavigationContainer>

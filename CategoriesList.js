@@ -1,28 +1,34 @@
 const Categories = [
     {
         id: "C1",
-        title: "Italic"
+        title: "Italian",
+        color: "#ffcc00"
     },
     {
         id: "C2",
-        title: "Indian"
+        title: "Indian",
+        color: "#ffaa80"
     },
     {
         id: "C3",
-        title: "Chienece"
+        title: "Chienece",
+        color: "#ff3333"
     },
     {
         id: "C4",
-        title: "Mexican"
+        title: "Mexican",
+        color: "#80aaff"
     },
     {
         id: "C5",
-        title: "Exotic"
+        title: "Exotic",
+        color: "#999966"
     },
     {
         id: "C6",
-        title: "Greek"
+        title: "Greek",
+        color: "#ff80df"
     }
 ]
 
-export default Categories;
+export  {Categories};
